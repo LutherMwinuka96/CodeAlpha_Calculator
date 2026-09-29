@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f5f9">
+  <meta name="description" content="A responsive calculator with calculation history, keyboard support, and memory functions.">
+  <title>CodeAlpha Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="CodeAlpha Calculator home">
+        <span class="brand-mark" aria-hidden="true">C<span>+</span></span>
+        <span class="brand-copy"><strong>CodeAlpha Calculator</strong></span>
+      </a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+      </button>
+    </header>
+
+    <section class="workspace" aria-label="Calculator workspace">
+      <section class="calculator-card" aria-label="Calculator">
+        <div class="card-heading"><div><span class="eyebrow">EVERYDAY MATH</span><h1>Calculator</h1></div><div class="heading-actions"><button id="scientific-toggle" class="mode-toggle" type="button" aria-expanded="false">ƒx <span>Scientific</span></button><span class="live-badge"><span></span> Ready</span></div></div>
+        <div class="display" aria-live="polite" aria-atomic="true">
+          <div class="expression-line" id="expression" aria-label="Previous expression">&nbsp;</div>
+          <div class="result-line" id="display" aria-label="Current value">0</div>
+          <div class="preview-line" id="preview">&nbsp;</div>
+        </div>
+        <div class="display-tools"><span class="mode-caption" id="mode-caption">STANDARD</span><button id="copy-result" class="copy-button" type="button" aria-label="Copy current result">Copy result</button></div>
+        <div class="scientific-panel" id="scientific-panel" hidden aria-label="Scientific functions">
+          <button class="scientific-key" data-scientific="square">x²</button><button class="scientific-key" data-scientific="sqrt">√x</button><button class="scientific-key" data-scientific="reciprocal">1/x</button><button class="scientific-key" data-scientific="pi">π</button>
+        </div>
+        <div class="memory-row" aria-label="Memory functions">
+          <button class="memory-key" data-action="memory-clear" aria-label="Memory clear">MC</button>
+          <button class="memory-key" data-action="memory-recall" aria-label="Memory recall">MR</button>
+          <button class="memory-key" data-action="memory-add" aria-label="Memory add">M+</button>
+          <button class="memory-key" data-action="memory-subtract" aria-label="Memory subtract">M−</button>
+          <span class="memory-indicator" id="memory-indicator" aria-live="polite"></span>
+        </div>
+        <div class="keypad" aria-label="Calculator keys">
+          <button class="key utility" data-action="clear" aria-label="All clear">AC</button>
+          <button class="key utility" data-action="delete" aria-label="Delete last digit">DEL</button>
+          <button class="key utility" data-action="percent" aria-label="Percentage">%</button>
+          <button class="key operator" data-operator="÷" aria-label="Divide">÷</button>
+          <button class="key" data-number="7">7</button><button class="key" data-number="8">8</button><button class="key" data-number="9">9</button><button class="key operator" data-operator="×" aria-label="Multiply">×</button>
+          <button class="key" data-number="4">4</button><button class="key" data-number="5">5</button><button class="key" data-number="6">6</button><button class="key operator" data-operator="−" aria-label="Subtract">−</button>
+          <button class="key" data-number="1">1</button><button class="key" data-number="2">2</button><button class="key" data-number="3">3</button><button class="key operator" data-operator="+" aria-label="Add">+</button>
+          <button class="key sign-key" data-action="sign" aria-label="Toggle positive or negative">+/−</button><button class="key" data-number="0">0</button><button class="key" data-action="decimal" aria-label="Decimal point">.</button><button class="key equals" data-action="equals" aria-label="Equals">=</button>
+        </div>
+        <p class="keyboard-hint"><span class="keycap">↵</span> to calculate <span class="hint-divider">·</span> <span class="keycap">Esc</span> to clear</p>
+      </section>
+
+      <aside class="history-card" aria-label="Calculation history">
+        <div class="history-heading"><div><span class="eyebrow">YOUR RECENT WORK</span><h2>History</h2></div><button id="clear-history" class="clear-history" type="button" aria-label="Clear calculation history" title="Clear history"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2m3 0-1 14H6L5 6m5 4v6m4-6v6"/></svg></button></div>
+        <div id="history-list" class="history-list" aria-live="polite"></div>
+        <div class="history-footer"><span class="history-dot"></span><span id="history-count">No calculations yet</span><span class="history-storage">Saved on this device</span></div>
+      </aside>
+    </section>
+  </main>
+</body>
+</html>
